@@ -1,0 +1,193 @@
+{
+  "controllers" : {
+    "client" : {
+      "customCode" : "var value = 0;"
+    },
+    "dataStream" : {
+      "ce_datastream" : { }
+    },
+    "page" : {
+      "Start" : {
+        "onStart" : "var totalCountChartConfig = {\n    \"type\":\"area\",\n    \"utc\":false,\n    \"timezone\":8,\n    \"plotarea\":{\n        \"adjust-layout\":true,\n        \"margin\":\"60 50 65 50\"\n    },\n    \"scale-x\":{\n        \"step\":\"second\",\n        \"transform\":{\n            \"type\":\"date\",\n            \"all\":\"%H:%i:%s\"\n        },\n        \"item\":{\n            \"color\":\"blue\"\n        }\n    },\n    \"scale-y\":{\n        \"guide\":{\n            \"visible\":false\n        },\n        \"item\":{\n            \"color\":\"red\"\n        }\n    },\n    \"plot\":{\n        \"border-radius\":\"4px\"\n    },\n    \"backgroundColor\":\"none\",\n    \"series\":[\n        {\n            \"values\":[[(new Date()).getTime(), 0]],\n            \"marker\":{ \"size\":0 }\n        }\n    ]\n};\n\nzingchart.render({\n  id: \"custom_zingchart\",\n  data: totalCountChartConfig, \n  width: \"300\",\n  height: \"280\"\n});",
+        "widgets" : {
+          "Button1" : {
+            "onClick" : "// var standStatsData = [];\n// var zingchart_data = [];\n\n// zingchart_data.push({\"number\": j});\n    \n//\tzingchart.exec(\"custom_zingchart\", 'appendseriesvalues', {\n//    \tplotindex : 0,\n//    \tvalues  : [ [new Date().getTime(), value] ]\n//\t});    \n\nzingchart.exec('custom_zingchart', 'appendseriesvalues', {\n   plotindex : 0,\n   values: [[new Date().getTime(), value]]\n});\n\nclient.sendClientEvent( \"ce_datastream\", [{\"number\": value}] );\n\nvalue++;"
+          }
+        }
+      }
+    }
+  },
+  "isLaunchable" : false,
+  "models" : {
+    "dataObjects" : {
+      "__GLOBAL__" : {
+        "properties" : {
+          "value" : {
+            "defaultLabel" : "value",
+            "type" : "TypedObject",
+            "typedObject" : {
+              "properties" : {
+                "number" : {
+                  "defaultLabel" : "number",
+                  "type" : "Integer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "__PARAMETERS__" : {
+        "properties" : { }
+      }
+    },
+    "dataStreams" : [ {
+      "advancedWhereClause" : null,
+      "dataObjectName" : "client.data.value",
+      "dataTypeList" : [ ],
+      "isDeleteOp" : false,
+      "isInsertOp" : false,
+      "isUpdateOp" : false,
+      "maxRecords" : 0,
+      "name" : "ce_datastream",
+      "property" : null,
+      "sortByProperty" : null,
+      "sortDescending" : false,
+      "type" : 5,
+      "updateInterval" : 60,
+      "uuid" : "ec3f4dfe-2397-4a13-8901-ca9e515d0b89",
+      "v" : 1
+    } ]
+  },
+  "name" : "zingchart",
+  "options" : {
+    "badgeCount" : 0,
+    "description" : "",
+    "showGridWhileEditing" : false,
+    "theme" : {
+      "backgroundColor" : "#ffffff",
+      "borderColor" : "#d3d6db",
+      "cardAccentColor" : "#ffffff",
+      "cardColor" : "#3c424d",
+      "foregroundColor" : "#566076",
+      "label" : "Light",
+      "name" : "light",
+      "titleBarColor" : "#f0f2f8",
+      "v" : 2
+    },
+    "v" : 3
+  },
+  "targetDevice" : "browser",
+  "userList" : [ ],
+  "views" : {
+    "Start" : {
+      "bodyChildren" : [ {
+        "CSSClass" : "vantiqLineChart",
+        "actionMenuLabel" : null,
+        "actionMenuTopic" : null,
+        "axisAutoRange" : false,
+        "borderColor" : "Default",
+        "borderRadius" : 4,
+        "borderWidth" : 0,
+        "dataStreamGroupedByFiltersString" : "",
+        "dataStreamPropertyList" : [ {
+          "dataType" : "Integer",
+          "label" : "number",
+          "selected" : false,
+          "type" : "number"
+        } ],
+        "dataStreamUUID" : "ec3f4dfe-2397-4a13-8901-ca9e515d0b89",
+        "dataType" : null,
+        "displayThreshold" : "No",
+        "h" : 300,
+        "hasGridLines" : false,
+        "hasPoints" : false,
+        "heightPolicy" : 1,
+        "horzGravity" : 4,
+        "isArea" : false,
+        "isDraggable" : true,
+        "isSelectable" : true,
+        "name" : "zingchart1",
+        "naturalKey" : null,
+        "operation" : "insert",
+        "propertyName" : null,
+        "thresholdValue" : 0,
+        "type" : "ZingLineChart",
+        "v" : 14,
+        "vertGravity" : 4,
+        "w" : 400,
+        "widthPolicy" : 1,
+        "x" : 68.09413760900497,
+        "xAxisProperty" : null,
+        "xAxisTimetamp" : true,
+        "y" : 42.25311279296875
+      }, {
+        "CSSClass" : "vantiqStaticHtml",
+        "actionMenuLabel" : null,
+        "actionMenuTopic" : null,
+        "borderColor" : "Default",
+        "borderRadius" : 4,
+        "borderWidth" : 2,
+        "dataStreamUUID" : null,
+        "dmh" : 300,
+        "dmw" : 200,
+        "h" : 300,
+        "heightPolicy" : 1,
+        "horzGravity" : 4,
+        "horzScrollPolicy" : 0,
+        "html" : "<div id=\"custom_zingchart\">&nbsp;</div>",
+        "isDraggable" : true,
+        "isSelectable" : true,
+        "name" : "StaticHtml6",
+        "type" : "RichText",
+        "v" : 14,
+        "vertGravity" : 4,
+        "vertScrollPolicy" : 0,
+        "w" : 309,
+        "widthPolicy" : 1,
+        "x" : 528.9814972281456,
+        "y" : 39.64508056640625
+      }, {
+        "CSSClass" : "vantiqButton",
+        "actionMenuLabel" : null,
+        "actionMenuTopic" : null,
+        "borderColor" : "Default",
+        "borderRadius" : 4,
+        "borderWidth" : 0,
+        "buttonBackgroundColor" : "platform",
+        "buttonLabel" : "PopulateData",
+        "buttonLabelColor" : "platform",
+        "buttonLabelSize" : 14,
+        "buttonLabelStyle" : "bold",
+        "h" : 46,
+        "heightPolicy" : 0,
+        "horzGravity" : 4,
+        "horzMargin" : 10,
+        "innerMargin" : 0,
+        "isDraggable" : true,
+        "isSelectable" : true,
+        "label" : "",
+        "labelAlign" : "left",
+        "labelColor" : "default",
+        "labelFontSize" : 16,
+        "labelStyle" : "bold",
+        "name" : "Button1",
+        "type" : "PIInlineButton",
+        "v" : 14,
+        "value" : 100,
+        "vertGravity" : 4,
+        "vertMargin" : 10,
+        "w" : 126,
+        "widthPolicy" : 2,
+        "x" : 881.0571808218956,
+        "y" : 142.26083374023438
+      } ],
+      "data" : {
+        "properties" : { }
+      },
+      "fields" : [ ],
+      "footerChildren" : [ ],
+      "layoutType" : "browser",
+      "responseTopic" : "/my/response/topic"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "links" : [ {
+    "source" : "client/zingchart",
+    "target" : "topic//my/response/topic"
+  } ],
+  "name" : "zingchart",
+  "options" : {
+    "description" : "",
+    "filterBitArray" : "ffffffffffffffffffffffffffffffff",
+    "isModeloProject" : true,
+    "layoutStyle" : "custom",
+    "showGrid" : true,
+    "v" : 2
+  },
+  "resources" : [ {
+    "label" : "/my/response/topic",
+    "name" : "/my/response/topic",
+    "node" : {
+      "x" : 392.8201032675709,
+      "y" : 226.8158547626407
+    },
+    "type" : 10
+  }, {
+    "inventory" : {
+      "appmodelHash" : [ ],
+      "appmodels" : [ ],
+      "collaborationHash" : [ ],
+      "collaborations" : [ ],
+      "pagesetHash" : [ ],
+      "pagesets" : [ ],
+      "procedureHash" : [ ],
+      "procedures" : [ ],
+      "sourceHash" : [ ],
+      "sources" : [ ],
+      "topicHash" : [ "out" ],
+      "topics" : [ "/my/response/topic" ],
+      "typeHash" : [ ],
+      "types" : [ ]
+    },
+    "label" : "zingchart",
+    "name" : "zingchart",
+    "node" : {
+      "x" : 271.82555351307826,
+      "y" : 146.15282159297468
+    },
+    "timestamp" : "2019-01-17T08:54:53.507Z",
+    "type" : 15
+  } ],
+  "tools" : [ {
+    "isPinned" : false,
+    "name" : "zingchart",
+    "pane" : {
+      "h" : 730,
+      "w" : 1320,
+      "x" : 9.992284774780273,
+      "y" : 0
+    },
+    "resourceKey" : "client/zingchart",
+    "toolOptions" : {
+      "isRunning" : false
+    },
+    "type" : 63
+  } ],
+  "type" : "dev",
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "client/zingchart" ]
+  } ]
+}
